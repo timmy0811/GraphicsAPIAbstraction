@@ -3,7 +3,7 @@
 
 #include "Debug/Debug.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 #include <string>
 
 OpenGL::Advanced::ShadowMap_OpenGL::ShadowMap_OpenGL(const glm::ivec2& size)

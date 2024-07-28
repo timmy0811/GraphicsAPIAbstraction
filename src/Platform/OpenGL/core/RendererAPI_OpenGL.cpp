@@ -1,7 +1,7 @@
 #include "glpch.h"
 #include "RendererAPI_OpenGL.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 void OpenGL::Core::RendererAPI_OpenGL::SetClearColor(const glm::vec4& color)
 {

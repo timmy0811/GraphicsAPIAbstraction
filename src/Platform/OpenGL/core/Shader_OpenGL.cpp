@@ -1,7 +1,7 @@
 #include "glpch.h"
 #include "Shader_OpenGL.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 OpenGL::Core::Shader_OpenGL::Shader_OpenGL(const std::string& path_vert, const std::string& path_frag)
 	:Shader(path_vert, path_frag), m_RendererID(0)

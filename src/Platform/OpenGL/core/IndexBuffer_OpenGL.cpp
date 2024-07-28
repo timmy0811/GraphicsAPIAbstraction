@@ -3,7 +3,7 @@
 
 #include "Debug/Debug.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 OpenGL::Core::IndexBuffer_OpenGL::IndexBuffer_OpenGL(const unsigned int* data, unsigned int count)
 {

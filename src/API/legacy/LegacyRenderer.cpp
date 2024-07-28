@@ -4,7 +4,7 @@
 #include "Debug/Debug.h"
 #include "API/core/Renderer.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 void API::Legacy::LegacyRenderer::Init()
 {

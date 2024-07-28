@@ -3,7 +3,7 @@
 
 #include "Debug/Debug.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 OpenGL::Texture::Texture_OpenGL::Texture_OpenGL(const std::string& path, const bool flipUV)
 {

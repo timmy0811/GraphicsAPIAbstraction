@@ -3,7 +3,7 @@
 
 #include "Debug/Debug.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 #include <random>
 
 void OpenGL::Advanced::SSAO_OpenGL::GenerateSSAONoiseMap()

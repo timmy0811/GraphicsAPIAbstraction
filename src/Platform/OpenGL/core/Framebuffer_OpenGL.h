@@ -5,7 +5,7 @@
 #include "API/core/Framebuffer.h"
 
 #include <vector>
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 namespace OpenGL::Core {
 	class Framebuffer_OpenGL : public API::Core::Framebuffer
@@ -14,7 +14,7 @@ namespace OpenGL::Core {
 		Framebuffer_OpenGL(const glm::ivec2& size, bool attachDepth = true, DepthBufferType depthType = DepthBufferType::WRITE_ONLY);
 
 		void Bind(unsigned int Framebuffer) override;
-		
+
 		void Bind() const override;
 		void BindAndClear() override;
 		void Unbind() override;

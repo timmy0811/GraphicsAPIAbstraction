@@ -1,7 +1,7 @@
 #include "glpch.h"
 #include "VertexArray_OpenGL.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 OpenGL::Core::VertexArray_OpenGL::VertexArray_OpenGL()
 {

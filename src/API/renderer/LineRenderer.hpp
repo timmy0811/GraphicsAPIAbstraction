@@ -11,7 +11,7 @@
 
 #include "API/legacy/LegacyRenderer.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 #include <memory>
 #include <string>

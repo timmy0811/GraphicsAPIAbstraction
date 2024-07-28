@@ -1,7 +1,7 @@
 #include "glpch.h"
 #include "VertexBuffer_OpenGL.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 OpenGL::Core::VertexBuffer_OpenGL::VertexBuffer_OpenGL(const void* data, unsigned int size)
 {

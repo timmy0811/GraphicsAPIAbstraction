@@ -1,7 +1,7 @@
 #include "glpch.h"
 #include "Debug.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 void GLCLearError()
 {

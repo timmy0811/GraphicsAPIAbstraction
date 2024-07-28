@@ -7,7 +7,7 @@
 #include "API/legacy/LegacyRenderer.h"
 #include "Primitive.hpp"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 namespace API::Misc {
 	struct Vec2_4 {

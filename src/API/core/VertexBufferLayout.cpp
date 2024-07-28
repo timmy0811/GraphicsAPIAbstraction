@@ -3,7 +3,7 @@
 
 #include "API/core/Renderer.h"
 
-#include <GLEW/glew.h>
+#include <GL/glew.h>
 
 API::Core::VertexBufferLayout* API::Core::VertexBufferLayout::Create()
 {
