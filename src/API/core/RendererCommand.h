@@ -16,14 +16,24 @@ namespace API::Core {
 			s_RendererAPI->Clear();
 		}
 
-		inline static void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray)
+		inline static void Draw(const std::shared_ptr<VertexArray>& vertexArray, size_t size)
 		{
-			s_RendererAPI->DrawIndexed(vertexArray);
+			s_RendererAPI->Draw(vertexArray, size);
 		}
 
 		inline static void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray, const std::shared_ptr<IndexBuffer>& indexBuffer)
 		{
 			s_RendererAPI->DrawIndexed(vertexArray, indexBuffer);
+		}
+
+		inline static void DrawInstanced(const std::shared_ptr<VertexArray>& vertexArray, size_t size, unsigned int instances)
+		{
+			s_RendererAPI->DrawInstanced(vertexArray, size, instances);
+		}
+
+		inline static void DrawInstanced(const std::shared_ptr<VertexArray>& vertexArray, const std::shared_ptr<IndexBuffer>& indexBuffer, unsigned int instances)
+		{
+			s_RendererAPI->DrawInstanced(vertexArray, indexBuffer, instances);
 		}
 
 	private:

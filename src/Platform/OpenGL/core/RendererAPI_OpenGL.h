@@ -9,7 +9,10 @@ namespace OpenGL::Core {
 		virtual void SetClearColor(const glm::vec4& color) override;
 		virtual void Clear() override;
 
-		virtual void DrawIndexed(const std::shared_ptr<API::Core::VertexArray>& vertexArray) override;
+		virtual void Draw(const std::shared_ptr<API::Core::VertexArray>& vertexArray, size_t size) override;
 		virtual void DrawIndexed(const std::shared_ptr<API::Core::VertexArray>& vertexArray, const std::shared_ptr<API::Core::IndexBuffer>& ib) override;
+
+		virtual void DrawInstanced(const std::shared_ptr<API::Core::VertexArray>& vertexArray, size_t size, unsigned int instances) override;
+		virtual void DrawInstanced(const std::shared_ptr<API::Core::VertexArray>& vertexArray, const std::shared_ptr<API::Core::IndexBuffer>& indexBuffer, unsigned int instances) override;
 	};
 }

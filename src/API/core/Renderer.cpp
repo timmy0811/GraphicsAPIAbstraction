@@ -9,15 +9,28 @@ void API::Core::DefaultRendererContext::EndScene()
 {
 }
 
-void API::Core::DefaultRendererContext::Submit(const std::shared_ptr<VertexArray>& va)
+void API::Core::DefaultRendererContext::SubmitDraw(const std::shared_ptr<VertexArray>& va, size_t size)
 {
 	va->Bind();
-	RenderCommand::DrawIndexed(va);
+	RenderCommand::Draw(va, size);
 }
 
-void API::Core::DefaultRendererContext::Submit(const std::shared_ptr<VertexArray>& va, const std::shared_ptr<IndexBuffer>& ib)
+void API::Core::DefaultRendererContext::SubmitDraw(const std::shared_ptr<VertexArray>& va, const std::shared_ptr<IndexBuffer>& ib)
 {
 	va->Bind();
 	ib->Bind();
 	RenderCommand::DrawIndexed(va, ib);
+}
+
+void API::Core::DefaultRendererContext::SubmitInstancedDraw(const std::shared_ptr<VertexArray>& va, size_t size, unsigned int instances)
+{
+	va->Bind();
+	RenderCommand::DrawInstanced(va, size, instances);
+}
+
+void API::Core::DefaultRendererContext::SubmitInstancedDraw(const std::shared_ptr<VertexArray>& va, const std::shared_ptr<IndexBuffer>& ib, unsigned int instances)
+{
+	va->Bind();
+	ib->Bind();
+	RenderCommand::DrawInstanced(va, ib, instances);
 }
