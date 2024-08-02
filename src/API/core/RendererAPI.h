@@ -25,6 +25,12 @@ namespace API::Core {
 		virtual void DrawInstanced(const std::shared_ptr<VertexArray>& vertexArray, const std::shared_ptr<IndexBuffer>& indexBuffer, unsigned int instances) = 0;
 
 		inline static API_ENUM GetAPI() { return s_API; }
+
+		virtual const std::string GetAPIVer() const = 0;
+		virtual const std::string GetGPUID() const = 0;
+		virtual const std::string GetPublisher() const = 0;
+		virtual const std::string GetShaderLanID() const = 0;
+
 	private:
 		static API_ENUM s_API;
 	};

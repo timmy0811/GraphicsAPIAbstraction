@@ -36,6 +36,11 @@ namespace API::Core {
 			s_RendererAPI->DrawInstanced(vertexArray, indexBuffer, instances);
 		}
 
+		inline static const std::string GetAPIVer() { return s_RendererAPI->GetAPIVer(); }
+		inline static const std::string GetGPUID() { return s_RendererAPI->GetGPUID(); }
+		inline static const std::string GetPublisher() { return s_RendererAPI->GetPublisher(); }
+		inline static const std::string GetShaderLanID() { return s_RendererAPI->GetShaderLanID(); }
+
 	private:
 		static RendererAPI* s_RendererAPI;
 	};

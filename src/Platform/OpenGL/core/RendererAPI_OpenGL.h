@@ -14,5 +14,10 @@ namespace OpenGL::Core {
 
 		virtual void DrawInstanced(const std::shared_ptr<API::Core::VertexArray>& vertexArray, size_t size, unsigned int instances) override;
 		virtual void DrawInstanced(const std::shared_ptr<API::Core::VertexArray>& vertexArray, const std::shared_ptr<API::Core::IndexBuffer>& indexBuffer, unsigned int instances) override;
+
+		virtual const std::string GetAPIVer() const;
+		virtual const std::string GetGPUID() const;
+		virtual const std::string GetPublisher() const;
+		virtual const std::string GetShaderLanID() const;
 	};
 }

@@ -32,3 +32,23 @@ void OpenGL::Core::RendererAPI_OpenGL::DrawInstanced(const std::shared_ptr<API::
 {
 	GLCall(glDrawElementsInstanced(GL_TRIANGLES, indexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr, instances));
 }
+
+const std::string OpenGL::Core::RendererAPI_OpenGL::GetAPIVer() const
+{
+	return std::string((const char*)glGetString(GL_VERSION));
+}
+
+const std::string OpenGL::Core::RendererAPI_OpenGL::GetGPUID() const
+{
+	return std::string((const char*)glGetString(GL_RENDERER));
+}
+
+const std::string OpenGL::Core::RendererAPI_OpenGL::GetPublisher() const
+{
+	return std::string((const char*)glGetString(GL_VENDOR));
+}
+
+const std::string OpenGL::Core::RendererAPI_OpenGL::GetShaderLanID() const
+{
+	return std::string((const char*)glGetString(GL_SHADING_LANGUAGE_VERSION));
+}
