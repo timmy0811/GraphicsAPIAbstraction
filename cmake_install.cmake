@@ -1,4 +1,4 @@
-# Install script for directory: F:/Desktop/Fluidify/GLWrapper
+# Install script for directory: F:/Desktop/Fluidity/GLWrapper
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
