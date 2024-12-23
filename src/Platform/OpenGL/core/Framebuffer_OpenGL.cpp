@@ -53,6 +53,41 @@ OpenGL::Core::Framebuffer_OpenGL::Framebuffer_OpenGL(const glm::ivec2& size, boo
 	GLCall(glBindFramebuffer(GL_FRAMEBUFFER, 0));
 }
 
+OpenGL::Core::Framebuffer_OpenGL::Framebuffer_OpenGL(const glm::ivec2& size)
+{
+	m_Width = size.x;
+	m_Height = size.y;
+
+	m_Attachements.reserve(MAX_BUF);
+
+	GLCall(glGenFramebuffers(1, &m_IdFBO));
+	GLCall(glBindFramebuffer(GL_FRAMEBUFFER, m_IdFBO));
+
+	m_Attachements.push_back(GL_COLOR_ATTACHMENT0);
+
+	// Color attachment
+	glGenTextures(1, &m_Attachements[0]);
+	glBindTexture(GL_TEXTURE_2D, m_Attachements[0]);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_Attachements[0], 0);
+
+	// Depth attachment
+	glGenRenderbuffers(1, &m_RBODepth);
+	glBindRenderbuffer(GL_RENDERBUFFER, m_RBODepth);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_Width, m_Height);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_RBODepth);
+
+	GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+
+	if (status != GL_FRAMEBUFFER_COMPLETE) {
+		std::cout << "[OpenGL Error] (" << std::to_string(status) << ")" << std::endl;
+	}
+
+	GLCall(glBindFramebuffer(GL_FRAMEBUFFER, 0));
+}
+
 unsigned int OpenGL::Core::Framebuffer_OpenGL::BindDepthTexture(const unsigned int slot)
 {
 	GLCall(glActiveTexture(GL_TEXTURE0 + slot));
@@ -260,6 +295,11 @@ bool OpenGL::Core::Framebuffer_OpenGL::PushColorAttribute(unsigned int internalF
 	glDrawBuffers((int)m_Attachements.size(), &m_Attachements[0]);
 
 	return true;
+}
+
+inline unsigned int OpenGL::Core::Framebuffer_OpenGL::GetColorAttachmentTextureID(unsigned int index)
+{
+	return m_Attachements[index];
 }
 
 inline bool OpenGL::Core::Framebuffer_OpenGL::Validate() const

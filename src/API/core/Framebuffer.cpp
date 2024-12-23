@@ -15,3 +15,15 @@ API::Core::Framebuffer* API::Core::Framebuffer::Create(const glm::ivec2& size, b
 	API_ASSERT(false, "Unknown RendererAPI!");
 	return nullptr;
 }
+
+API::Core::Framebuffer* API::Core::Framebuffer::Create(const glm::ivec2& size)
+{
+	switch (API::Core::DefaultRendererContext::GetAPI())
+	{
+	case API::Core::RendererAPI::API_ENUM::None:    API_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+	case API::Core::RendererAPI::API_ENUM::OpenGL:  return new OpenGL::Core::Framebuffer_OpenGL(size);
+	}
+
+	API_ASSERT(false, "Unknown RendererAPI!");
+	return nullptr;
+}

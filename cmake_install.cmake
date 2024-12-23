@@ -1,8 +1,8 @@
-# Install script for directory: F:/Desktop/Fluidity/GLWrapper
+# Install script for directory: C:/Git/3DCast/GLWrapper
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Fluidity")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/3DCast")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

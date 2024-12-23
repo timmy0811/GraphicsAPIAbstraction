@@ -11,7 +11,8 @@ namespace OpenGL::Core {
 	class Framebuffer_OpenGL : public API::Core::Framebuffer
 	{
 	public:
-		Framebuffer_OpenGL(const glm::ivec2& size, bool attachDepth = true, DepthBufferType depthType = DepthBufferType::WRITE_ONLY);
+		Framebuffer_OpenGL(const glm::ivec2& size, bool attachDepth, DepthBufferType depthType = DepthBufferType::WRITE_ONLY);
+		Framebuffer_OpenGL(const glm::ivec2& size);
 
 		void Bind(unsigned int Framebuffer) override;
 
@@ -25,6 +26,8 @@ namespace OpenGL::Core {
 
 		bool PushColorAttribute(const char channel = 3, BufferDataType dataType = BufferDataType::_FLOAT, const void* data = nullptr) override;
 		bool PushColorAttribute(unsigned int internalFormat = GL_RGBA16F, unsigned int format = GL_RGBA, unsigned int dataType = GL_FLOAT, const void* data = nullptr) override;
+
+		virtual inline unsigned int GetColorAttachmentTextureID(unsigned int index) override;
 
 		inline size_t AttachementCount() const override { return m_Attachements.size(); }
 		inline bool Validate() const override;

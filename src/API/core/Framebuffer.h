@@ -22,7 +22,8 @@ namespace API::Core {
 			_SHORT = 0x1402,
 			_SHORT_UNSIGNED = 0x1403,
 			_INT_UNSIGNED = 0x1405,
-			_INT = 0x1404
+			_INT = 0x1404,
+			_NONE = 0
 		};
 
 		enum BufferFormat {
@@ -66,6 +67,11 @@ namespace API::Core {
 			RG8I = 0x8237,
 			R8I = 0x8231,
 
+			RGBA8 = 0x8058,
+			RGB8 = 0x8051,
+			RG8 = 0x822B,
+			R8 = 0x8229,
+
 			RGBA = 0x1908,
 			RGB = 0x1907,
 			RG = 0x8227,
@@ -88,11 +94,14 @@ namespace API::Core {
 		virtual bool PushColorAttribute(const char channel = 3, BufferDataType dataType = BufferDataType::_FLOAT, const void* data = nullptr) = 0;
 		virtual bool PushColorAttribute(unsigned int internalFormat = 0x881A, unsigned int format = 0x1908, unsigned int dataType = 0x1406, const void* data = nullptr) = 0;
 
+		virtual inline unsigned int GetColorAttachmentTextureID(unsigned int index) = 0;
+
 		virtual inline size_t AttachementCount() const = 0;
 		virtual inline bool Validate() const = 0;
 		virtual inline void Resize(const glm::ivec2& size) { m_Width = size.x; m_Height = size.y; }
 
-		static Framebuffer* Create(const glm::ivec2& size, bool attachDepth = true, DepthBufferType depthType = DepthBufferType::WRITE_ONLY);
+		static Framebuffer* Create(const glm::ivec2& size, bool attachDepth, DepthBufferType depthType = DepthBufferType::WRITE_ONLY);
+		static Framebuffer* Create(const glm::ivec2& size);
 
 	protected:
 		unsigned int m_Width, m_Height;

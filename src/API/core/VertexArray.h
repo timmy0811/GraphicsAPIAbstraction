@@ -15,6 +15,12 @@ namespace API::Core {
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
+		inline size_t GetVBCount() const { return vbCount; }
+		inline void SetVBCount(size_t count) { vbCount = count; }
+
 		static VertexArray* Create();
+
+	private:
+		size_t vbCount = 0;
 	};
 }
